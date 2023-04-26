@@ -1,4 +1,4 @@
-package gormx
+package rx
 
 import (
 	. "github.com/smartystreets/goconvey/convey"
