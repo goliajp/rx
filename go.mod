@@ -1,4 +1,4 @@
-module github.com/goliajp/rx
+module github.com/goliajp/rx/v2
 
 go 1.20
 
