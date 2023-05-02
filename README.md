@@ -12,7 +12,7 @@ RX is a Golang helper library for working with Redis as part of the Golia series
 ## Installation
 
 ```sh
-go get -u github.com/goliajp/rx
+go get -u github.com/goliajp/rx/v2
 ```
 
 ## Usage

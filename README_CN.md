@@ -12,7 +12,7 @@ RX 是 Golia 系列中用于操作 Redis 的 Golang 辅助库。它简化了创�
 ## 安装
 
 ```sh
-go get -u github.com/goliajp/rx
+go get -u github.com/goliajp/rx/v2
 ```
 
 ## 使用

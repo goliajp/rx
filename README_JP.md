@@ -12,7 +12,7 @@ RXは、Golia シリーズの一部として Redis を操作するための Gola
 ## インストール
 
 ```sh
-go get -u github.com/goliajp/rx
+go get -u github.com/goliajp/rx/v2
 ```
 
 ## 使い方
