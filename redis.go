@@ -45,7 +45,9 @@ func (r *Redis) Client(args ...string) *redis.Client {
 		r.cli = r.Open(args...)
 	})
 	if !TestConnection(r.cli) {
-		_ = r.cli.Close()
+		if r.cli != nil {
+			_ = r.cli.Close()
+		}
 		r.cli = r.Open(args...)
 	}
 	return r.cli
