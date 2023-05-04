@@ -1,6 +1,7 @@
 package rx
 
 import (
+	"context"
 	. "github.com/smartystreets/goconvey/convey"
 	"testing"
 )
@@ -64,10 +65,25 @@ func TestRedis(t *testing.T) {
 		So(cli2, ShouldNotBeNil)
 		So(cli3, ShouldBeNil)
 	})
-	Convey("get go-redis v8 singleton", t, func() {
+	Convey("get go-redis v9 singleton", t, func() {
 		r := NewRedis(nil)
 		cli := r.Client()
 		So(r, ShouldNotBeNil)
 		So(cli, ShouldNotBeNil)
 	})
+	Convey("get set test", t, func() {
+		r := NewRedis(nil)
+		cli := r.Client()
+		cli.Set(context.Background(), "test", "test", 0)
+		val, err := cli.Get(context.Background(), "test").Result()
+		So(err, ShouldBeNil)
+		So(val, ShouldEqual, "test")
+	})
+
+	// clear
+	r := NewRedis(nil)
+	cli := r.Client()
+	if err := cli.FlushAll(context.Background()).Err(); err != nil {
+		t.Error(err)
+	}
 }
